@@ -4,7 +4,7 @@ Connect your agent to your Veloci workspace: set and review goals, reconcile com
 
 Try “Show my goals and open commitments so we can decide what matters next,” or “Reconcile these notes with my existing commitments.” Tools depend on your workspace's available capabilities. Plan your week, connect goals to commitments, and review progress with Veloci.
 
-**Beta for existing Veloci accounts on test.arcticrex.com.** This source is maintained by ArcticRex. It is not an official vendor directory listing or a verified badge. Installation does not grant workspace access. Cowork and ChatGPT Work still need a real installation and fresh-session verification; do not assume the CLI test results establish their behavior.
+**Beta for existing Veloci accounts on test.arcticrex.com.** This source is maintained by ArcticRex. It is not an official vendor directory listing or a verified badge. Installation does not grant workspace access. The Claude Code and Cowork listing is submitted and pending review. ChatGPT Work verification is pending.
 
 **Public beta marketplace.** Install from the ArcticRex repository using the steps below. If Veloci is already installed, check its endpoint, enabled components, authentication, trust, and fresh-session behavior before reinstalling.
 
@@ -16,6 +16,12 @@ If your existing Veloci connection uses a different gateway, do not install this
 2. Enter **https://github.com/ArcticRexOrg/veloci-plugins**.
 3. Select **Veloci**, install it, and sign in to your Veloci account.
 4. Enable the plugin components, start a new Cowork task, and ask **“Run Veloci init to check automatic task tracking.”**
+
+### Enable tracking in every Cowork session
+
+If a fresh task ignores Veloci, open **Settings → Cowork → Global instructions** and add the following once, preserving your existing instructions. Save, then start a fresh task. This setting made the neutral-work test bind and save progress; installing the plugin alone did not.
+
+> Veloci work tracking: For every substantive Cowork request, including writing, planning, research, reviews and code, load the connected Veloci tools before starting work. List my open and in-progress tasks and bind the closest matching task with start_task. If none fits, create and start a task under the relevant existing goal. Announce the task title and ID briefly. Do not bind a task for a simple status or setup question. Deliver the requested work, then save truthful progress and what remains. Complete only finished work; leave partial work in progress. Read the task back with get_task before reporting its saved status. Use the same task when continuing work. Follow the Veloci server instructions for goals, reconciliation and task operations; never invent deadlines or mark work done just because the conversation ends.
 
 ## Claude Code
 
@@ -52,7 +58,7 @@ The removal-only `scripts/remove-legacy-hooks.py` helper requires explicit `--re
 
 ## Update or remove
 
-Use your host's plugin manager to update or uninstall Veloci. Updated hook definitions may require renewed trust. Start a fresh session to verify the update. Uninstalling does not restore a standalone hook removed during migration or delete your Veloci tasks.
+Use your host's plugin manager to update or uninstall Veloci. Updated hook definitions may require renewed trust. Start a fresh session to verify the update. Uninstalling does not restore a standalone hook removed during migration or delete your Veloci tasks. If you added the Cowork global instruction above, remove that paragraph to disable its reminder.
 
 [ArcticRex](https://www.arcticrex.com) · [Contact](mailto:contact@arcticrex.com)
 
