@@ -1,0 +1,8 @@
+{
+  "author": {
+    "name": "ArcticRex"
+  },
+  "description": "Track agent work in Veloci with session reminders and verified task receipts.",
+  "name": "veloci",
+  "version": "0.2.0"
+}

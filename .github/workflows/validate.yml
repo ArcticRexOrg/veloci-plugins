@@ -1,0 +1,44 @@
+name: Validate plugin
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifests, connection and reminder
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, subprocess
+          root = pathlib.Path('plugins/veloci')
+          for path in pathlib.Path('.').rglob('*.json'):
+              if '.git' not in path.parts:
+                  json.loads(path.read_text())
+          claude = json.loads((root / '.claude-plugin/plugin.json').read_text())
+          codex = json.loads((root / '.codex-plugin/plugin.json').read_text())
+          assert claude['name'] == codex['name'] == 'veloci'
+          assert claude['version'] == codex['version']
+          mcp = json.loads((root / '.mcp.json').read_text())['mcpServers']
+          assert mcp == {'veloci': {'type': 'http', 'url': 'https://test.arcticrex.com/mcp/veloci'}}
+          assert (root / 'skills/init/SKILL.md').is_file()
+          assert not (root / 'skills/setup').exists()
+          assert not (root / 'scripts/standalone-installer.py').exists()
+          assert (root / 'scripts/remove-legacy-hooks.py').is_file()
+          for helper in ('check.py', 'remove-legacy-hooks.py'):
+              compile((root / 'scripts' / helper).read_text(), helper, 'exec')
+          import tempfile
+          with tempfile.TemporaryDirectory() as home:
+              removal = ['python3', str(root / 'scripts/remove-legacy-hooks.py'), '--host', 'codex', '--home', home]
+              assert subprocess.run(removal, capture_output=True).returncode != 0
+              subprocess.run(removal + ['--remove'], check=True)
+              assert not (pathlib.Path(home) / '.codex').exists()
+          subprocess.run(['/bin/sh', '-n', str(root / 'hooks/session-start.sh')], check=True)
+          output = subprocess.check_output(['/bin/sh', str(root / 'hooks/session-start.sh')], text=True)
+          payload = json.loads(output)['hookSpecificOutput']
+          assert payload['hookEventName'] == 'SessionStart'
+          assert all(word in payload['additionalContext'] for word in ('start_task', 'get_task', 'progress'))
+          print('Plugin manifests, beta endpoint, init skill and SessionStart payload validated')
+          PY

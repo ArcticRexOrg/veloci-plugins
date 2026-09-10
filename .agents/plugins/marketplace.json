@@ -1,0 +1,20 @@
+{
+  "interface": {
+    "displayName": "ArcticRex"
+  },
+  "name": "arcticrex",
+  "plugins": [
+    {
+      "category": "Productivity",
+      "name": "veloci",
+      "policy": {
+        "authentication": "ON_INSTALL",
+        "installation": "AVAILABLE"
+      },
+      "source": {
+        "path": "./plugins/veloci",
+        "source": "local"
+      }
+    }
+  ]
+}

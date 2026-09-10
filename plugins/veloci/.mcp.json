@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "veloci": {
+      "type": "http",
+      "url": "https://test.arcticrex.com/mcp/veloci"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "author": {
+    "name": "ArcticRex"
+  },
+  "description": "Track agent work in Veloci with session reminders and verified task receipts.",
+  "interface": {
+    "capabilities": [
+      "Write"
+    ],
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Enable automatic task tracking"
+    ],
+    "developerName": "ArcticRex",
+    "displayName": "Veloci by ArcticRex",
+    "longDescription": "Track agent work in Veloci with session reminders and verified task receipts.",
+    "shortDescription": "Automatic task tracking for agent work"
+  },
+  "mcpServers": "./.mcp.json",
+  "name": "veloci",
+  "skills": "./skills/",
+  "version": "0.2.0"
+}

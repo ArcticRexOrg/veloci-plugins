@@ -1,0 +1,13 @@
+{
+  "name": "arcticrex",
+  "owner": {
+    "name": "ArcticRex"
+  },
+  "plugins": [
+    {
+      "description": "Track agent work in Veloci with session reminders and verified task receipts.",
+      "name": "veloci",
+      "source": "./plugins/veloci"
+    }
+  ]
+}
