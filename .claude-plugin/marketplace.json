@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "description": "Track agent work in Veloci with session reminders and verified task receipts.",
+      "description": "Connect goals, reconcile commitments, and keep work moving with Veloci.",
       "name": "veloci",
       "source": "./plugins/veloci"
     }

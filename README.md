@@ -1,6 +1,8 @@
 # Veloci by ArcticRex
 
-Enable automatic task tracking in your agent. Veloci loads task instructions when a supported session starts, so your agent can pick up the right task, save progress, and reconcile the result when work ends.
+Connect your agent to your Veloci workspace: set and review goals, reconcile commitments from your notes, and keep progress tied to the work that matters. The plugin also loads the shared work-tracking instructions when a supported agentic session starts.
+
+Try “Show my goals and open commitments so we can decide what matters next,” or “Reconcile these notes with my existing commitments.” Tools depend on your workspace's available capabilities. Weekly planning is under development; this beta does not promise a dedicated weekly-plan tool.
 
 **Beta for existing Veloci accounts on test.arcticrex.com.** This source is maintained by ArcticRex. It is not an official vendor directory listing or a verified badge. Installation does not grant workspace access. Cowork and ChatGPT Work still need a real installation and fresh-session verification; do not assume the CLI test results establish their behavior.
 

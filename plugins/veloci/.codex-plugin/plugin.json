@@ -2,22 +2,28 @@
   "author": {
     "name": "ArcticRex"
   },
-  "description": "Track agent work in Veloci with session reminders and verified task receipts.",
+  "description": "Connect goals, reconcile commitments, and keep work moving with Veloci.",
   "interface": {
     "capabilities": [
       "Write"
     ],
     "category": "Productivity",
+    "composerIcon": "./assets/icon.png",
     "defaultPrompt": [
-      "Enable automatic task tracking"
+      "Show my goals and the open work connected to them so I can plan my next steps.",
+      "Reconcile the commitments in these notes with my existing work.",
+      "Save my progress and show what remains on this task.",
+      "Enable automatic task tracking for this session environment."
     ],
     "developerName": "ArcticRex",
     "displayName": "Veloci by ArcticRex",
-    "longDescription": "Track agent work in Veloci with session reminders and verified task receipts.",
-    "shortDescription": "Automatic task tracking for agent work"
+    "logo": "./assets/icon.png",
+    "logoDark": "./assets/icon.png",
+    "longDescription": "Connect goals, reconcile commitments, and keep work moving with Veloci.",
+    "shortDescription": "Goals, commitments, and work progress"
   },
   "mcpServers": "./.mcp.json",
   "name": "veloci",
   "skills": "./skills/",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

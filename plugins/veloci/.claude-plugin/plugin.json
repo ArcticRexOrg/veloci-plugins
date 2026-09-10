@@ -2,7 +2,7 @@
   "author": {
     "name": "ArcticRex"
   },
-  "description": "Track agent work in Veloci with session reminders and verified task receipts.",
+  "description": "Connect goals, reconcile commitments, and keep work moving with Veloci.",
   "name": "veloci",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

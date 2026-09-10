@@ -1,4 +1,12 @@
-# Veloci by ArcticRex — 0.2.0 beta
+# Veloci by ArcticRex — 0.2.1 beta
+
+Connect goals, reconcile commitments, and keep work moving with Veloci. Review goals and their tasks to plan your next steps, reconcile evidence from your notes with existing commitments, and save progress so unfinished work is ready to resume.
+
+## Try Veloci
+
+- Show my goals and the open work connected to them so I can plan my next steps.
+- Reconcile the commitments in these notes with my existing work.
+- Save my progress and show what remains on this task.
 
 ## Enable automatic task tracking
 
