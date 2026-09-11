@@ -40,6 +40,7 @@ jobs:
           payload = json.loads(output)['hookSpecificOutput']
           assert payload['hookEventName'] == 'SessionStart'
           assert all(word in payload['additionalContext'] for word in ('start_task', 'complete_task', 'keep that ID bound'))
+          assert 'Update the task only at the start and when the tracked work is actually complete, unless the user asks for an update.' in payload['additionalContext']
           print('Plugin manifests, beta endpoint, init skill and SessionStart payload validated')
           PY
       - name: Test release packaging
