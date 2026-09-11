@@ -1,6 +1,6 @@
-# Veloci by ArcticRex — 0.2.1 beta
+# Veloci by ArcticRex — 0.2.2 beta
 
-Connect goals, reconcile commitments, and keep work moving with Veloci. Review goals and their tasks to plan your next steps, reconcile evidence from your notes with existing commitments, and save progress so unfinished work is ready to resume.
+Connect goals, reconcile commitments, and keep work moving with Veloci. Review goals and their tasks to plan your next steps, reconcile evidence from your notes with existing commitments, and save progress when requested.
 
 ## Try Veloci
 
@@ -24,7 +24,7 @@ Open Customize → Plugins → Add marketplace, enter https://github.com/ArcticR
 
 ## Codex
 
-Run codex plugin marketplace add ArcticRexOrg/veloci-plugins in the actual local execution environment. Restart the desktop app, open Plugins Directory, select ArcticRex, and install Veloci. In Codex CLI use /plugins to install from the registered marketplace. Review and trust the current definitions with /hooks; changed definitions need renewed trust. Administrators may disable hooks or allow only managed hooks. Start a new session after installation.
+Run codex plugin marketplace add ArcticRexOrg/veloci-plugins in the actual local execution environment. Restart the desktop app, open Plugins Directory, select ArcticRex, and install Veloci. In Codex CLI use /plugins to install from the registered marketplace. Review and trust the current definitions with /hooks; changed definitions need renewed trust. Administrators may disable hooks or allow only managed hooks. After installation or an update, quit and reopen Codex desktop and start a fresh task; in Codex CLI, start a new session.
 
 ## ChatGPT Work
 
@@ -34,7 +34,7 @@ Connect only Veloci with the user's own account, complete the host's authenticat
 
 ## Verify a fresh session
 
-Automatic tracking is not verified. In a fresh session, request ordinary substantive work without mentioning tracking. Inspect evidence that the canonical Veloci instructions loaded, then verify an opening task title/ID, saved partial progress for unfinished work, continuation of the same task ID, and final get_task readback of its actual saved state. Complete only finished work. Report installation, authentication, trust, instruction delivery, and task behavior separately; missing evidence remains unverified. Each execution device/profile and Cowork or Work runtime needs its own verification.
+Automatic tracking is not verified. In a fresh session, request ordinary substantive work without mentioning tracking. Inspect evidence that the canonical Veloci instructions loaded, then verify an opening task title/ID, continuation of the same task ID, and a successful complete_task result when the tracked work is actually finished. Routine progress updates and repeated readbacks are not required. Complete only finished work. Report installation, authentication, trust, instruction delivery, and task behavior separately; missing evidence remains unverified. Each execution device/profile and Cowork or Work runtime needs its own verification.
 
 The session hook prints the canonical task instructions. It makes no network requests, installs nothing, and changes no files. An agent's compliance must be observed. This beta needs a POSIX execution environment with its bundled script available; no public directory listing or cloud execution verification is implied.
 

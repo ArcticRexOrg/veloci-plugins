@@ -1,4 +1,4 @@
-name: Validate plugin
+name: Validate and package plugin
 on:
   push:
   pull_request:
@@ -39,6 +39,44 @@ jobs:
           output = subprocess.check_output(['/bin/sh', str(root / 'hooks/session-start.sh')], text=True)
           payload = json.loads(output)['hookSpecificOutput']
           assert payload['hookEventName'] == 'SessionStart'
-          assert all(word in payload['additionalContext'] for word in ('start_task', 'get_task', 'progress'))
+          assert all(word in payload['additionalContext'] for word in ('start_task', 'complete_task', 'keep that ID bound'))
           print('Plugin manifests, beta endpoint, init skill and SessionStart payload validated')
           PY
+      - name: Test release packaging
+        run: python3 scripts/test_package.py
+      - name: Package committed plugin files
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [ "$REF_TYPE" = tag ]; then
+            python3 scripts/package.py --tag "$REF_NAME"
+          else
+            python3 scripts/package.py
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: veloci-release
+          path: dist/*
+          if-no-files-found: error
+  release:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: veloci-release
+          path: dist
+      - name: Publish versioned ZIP and checksum
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          cd dist
+          sha256sum --check ./*.sha256
+          gh release create "$RELEASE_TAG" ./*.zip ./*.sha256 \
+            --verify-tag --title "Veloci ${RELEASE_TAG#v}" --generate-notes
