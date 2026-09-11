@@ -19,9 +19,13 @@ If your existing Veloci connection uses a different gateway, do not install this
 
 ### Enable tracking in every Cowork session
 
-If a fresh task ignores Veloci, open **Settings → Cowork → Global instructions** and add the following once, preserving your existing instructions. Save, then start a fresh task. This setting made the neutral-work test bind and save progress; installing the plugin alone did not.
+If a fresh task ignores Veloci, open **Settings → Cowork → Global instructions** and add the following once, preserving your existing instructions. Save, then start a fresh task. This setting supplies the reminder when the plugin alone does not load it.
 
-> Veloci work tracking: For every substantive Cowork request, including writing, planning, research, reviews and code, load the connected Veloci tools before starting work. List my open and in-progress tasks and bind the closest matching task with start_task. If none fits, create and start a task under the relevant existing goal. Announce the task title and ID briefly. Do not bind a task for a simple status or setup question. Deliver the requested work, then save truthful progress and what remains. Complete only finished work; leave partial work in progress. Read the task back with get_task before reporting its saved status. Use the same task when continuing work. Follow the Veloci server instructions for goals, reconciliation and task operations; never invent deadlines or mark work done just because the conversation ends.
+> Use Veloci for substantive work; status questions need no task.
+>
+> At the start, find the matching task or create one under the relevant goal. Call start_task and announce its title and ID once, then keep that ID bound.
+>
+> When the tracked work is actually complete — ships, merges, or lands — call complete_task and report the result.
 
 ## Claude Code
 
@@ -46,7 +50,7 @@ Restart the desktop app. In **Plugins Directory**, select **ArcticRex**, install
 
 ## Know when it works
 
-Init is a one-time check, not a command to repeat before every session. After setup, start ordinary work in a fresh session without mentioning tracking. Your agent should show the task title and ID, save unfinished progress, and read back the saved task state when it finishes. A task that is still unfinished must stay open.
+Init is a one-time check, not a command to repeat before every session. After setup, start ordinary work in a fresh session without mentioning tracking. Your agent should start the matching task, announce its title and ID once, keep that ID on continuation, and complete it when the tracked work actually finishes. Unfinished work stays in progress. Progress updates are available when requested; automatic tracking does not require repeated updates or readbacks.
 
 The check reports connection, installation, trust, and observed instruction delivery separately. If it cannot prove instructions loaded, it reports that. Installation alone is not verification. Remote control of the same computer uses that computer's setup; a separate agent or execution environment needs its own setup.
 
@@ -58,8 +62,26 @@ The removal-only `scripts/remove-legacy-hooks.py` helper requires explicit `--re
 
 ## Update or remove
 
-Use your host's plugin manager to update or uninstall Veloci. Updated hook definitions may require renewed trust. Start a fresh session to verify the update. Uninstalling does not restore a standalone hook removed during migration or delete your Veloci tasks. If you added the Cowork global instruction above, remove that paragraph to disable its reminder.
+Use your host's plugin manager to update or uninstall Veloci. Updated hook definitions may require renewed trust. After installing or updating in Codex desktop, quit and reopen the app, then start a fresh task. In Codex CLI, start a new session to verify the update. Uninstalling does not restore a standalone hook removed during migration or delete your Veloci tasks. If you added the Cowork global instruction above, remove that paragraph to disable its reminder.
 
 [ArcticRex](https://www.arcticrex.com) · [Contact](mailto:contact@arcticrex.com)
 
 Report installation issues through this repository's issues. Include host/version and which setup step failed; do not post tokens, private tasks, or account data.
+
+## Release packaging
+
+GitHub Actions validates and builds a ZIP on every push and pull request. Download
+`veloci-release` from the workflow run to test an unpublished build. ZIPs are not
+committed to this repository.
+
+To publish, update both plugin manifest versions in a reviewed commit, merge it,
+then push the matching tag (for example, `v0.2.2`). The same workflow validates the
+tag against both manifests, packages only the committed `plugins/veloci/` files,
+and attaches `veloci-0.2.2.zip` and `veloci-0.2.2.zip.sha256` to a GitHub Release.
+Hidden manifests sit at the ZIP root and executable permissions are preserved.
+A failed validation or version mismatch prevents publication. Existing releases
+are not overwritten; use a new version for changes.
+
+Marketplace installation continues to use this repository directly. The ZIP is
+for manual plugin uploads and downloads. No separate publishing secret is needed;
+the release job uses the repository's GitHub Actions token.
