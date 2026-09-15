@@ -21,6 +21,7 @@ jobs:
           codex = json.loads((root / '.codex-plugin/plugin.json').read_text())
           assert claude['name'] == codex['name'] == 'veloci'
           assert claude['version'] == codex['version']
+          assert codex['interface']['websiteURL'] == 'https://www.arcticrex.com'
           mcp = json.loads((root / '.mcp.json').read_text())['mcpServers']
           assert mcp == {'veloci': {'type': 'http', 'url': 'https://test.arcticrex.com/mcp/veloci'}}
           assert (root / 'skills/init/SKILL.md').is_file()

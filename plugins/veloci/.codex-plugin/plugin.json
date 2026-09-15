@@ -20,10 +20,11 @@
     "logo": "./assets/icon.png",
     "logoDark": "./assets/icon.png",
     "longDescription": "Connect goals, reconcile commitments, and keep work moving with Veloci.",
-    "shortDescription": "Goals, commitments, and work progress"
+    "shortDescription": "Goals, commitments, and work progress",
+    "websiteURL": "https://www.arcticrex.com"
   },
   "mcpServers": "./.mcp.json",
   "name": "veloci",
   "skills": "./skills/",
-  "version": "0.2.4"
+  "version": "0.2.5"
 }
