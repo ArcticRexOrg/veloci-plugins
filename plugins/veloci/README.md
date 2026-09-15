@@ -1,4 +1,4 @@
-# Veloci by ArcticRex — 0.2.4 beta
+# Veloci by ArcticRex — 0.2.5 beta
 
 Connect goals, reconcile commitments, and keep work moving with Veloci. Review goals and their tasks to plan your next steps, reconcile evidence from your notes with existing commitments, and save progress when requested.
 
