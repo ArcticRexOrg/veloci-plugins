@@ -23,7 +23,7 @@ If a fresh task ignores Veloci, open **Settings → Cowork → Global instructio
 
 > Use Veloci for substantive work; status questions need no task.
 >
-> At the start, find the matching task or create one under the relevant goal. Call start_task and announce its title and ID once, then keep that ID bound.
+> Reuse the bound task for related follow-ups, clarification, testing, evaluation, and repairs. If completed work resumes, call reopen_task then start_task on that same ID. Create a new task under the relevant goal only for a distinct objective with no matching task. At the start, call start_task and announce the title and ID once, then keep that ID bound.
 >
 > Update the task only at the start and when the tracked work is actually complete, unless the user asks for an update.
 >

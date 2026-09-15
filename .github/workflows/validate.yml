@@ -41,6 +41,7 @@ jobs:
           assert payload['hookEventName'] == 'SessionStart'
           assert all(word in payload['additionalContext'] for word in ('start_task', 'complete_task', 'keep that ID bound'))
           assert 'Update the task only at the start and when the tracked work is actually complete, unless the user asks for an update.' in payload['additionalContext']
+          assert all(phrase in payload['additionalContext'] for phrase in ('Reuse the bound task for related follow-ups', 'call reopen_task then start_task on that same ID', 'only for a distinct objective with no matching task'))
           print('Plugin manifests, beta endpoint, init skill and SessionStart payload validated')
           PY
       - name: Test release packaging
