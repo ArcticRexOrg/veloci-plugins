@@ -2,7 +2,7 @@
   "mcpServers": {
     "veloci": {
       "type": "http",
-      "url": "https://test.arcticrex.com/mcp/veloci"
+      "url": "https://veloci.arcticrex.com/mcp/veloci"
     }
   }
 }

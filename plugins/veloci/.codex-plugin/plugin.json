@@ -26,5 +26,5 @@
   "mcpServers": "./.mcp.json",
   "name": "veloci",
   "skills": "./skills/",
-  "version": "0.2.5"
+  "version": "0.3.0"
 }

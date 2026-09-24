@@ -23,7 +23,7 @@ jobs:
           assert claude['version'] == codex['version']
           assert codex['interface']['websiteURL'] == 'https://www.arcticrex.com'
           mcp = json.loads((root / '.mcp.json').read_text())['mcpServers']
-          assert mcp == {'veloci': {'type': 'http', 'url': 'https://test.arcticrex.com/mcp/veloci'}}
+          assert mcp == {'veloci': {'type': 'http', 'url': 'https://veloci.arcticrex.com/mcp/veloci'}}
           assert (root / 'skills/init/SKILL.md').is_file()
           assert not (root / 'skills/setup').exists()
           assert not (root / 'scripts/standalone-installer.py').exists()
