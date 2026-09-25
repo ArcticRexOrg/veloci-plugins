@@ -4,7 +4,7 @@ Connect your agent to your Veloci workspace: set and review goals, reconcile com
 
 Try “Show my goals and open commitments so we can decide what matters next,” or “Reconcile these notes with my existing commitments.” Tools depend on your workspace's available capabilities. Plan your week, connect goals to commitments, and review progress with Veloci.
 
-**Beta for existing Veloci accounts on test.arcticrex.com.** This source is maintained by ArcticRex. It is not an official vendor directory listing or a verified badge. Installation does not grant workspace access. The Claude Code and Cowork listing is submitted and pending review. ChatGPT Work verification is pending.
+**Beta for existing Veloci accounts on veloci.arcticrex.com.** This source is maintained by ArcticRex. It is not an official vendor directory listing or a verified badge. Installation does not grant workspace access. The Claude Code and Cowork listing is submitted and pending review. ChatGPT Work verification is pending.
 
 **Public beta marketplace.** Install from the ArcticRex repository using the steps below. If Veloci is already installed, check its endpoint, enabled components, authentication, trust, and fresh-session behavior before reinstalling.
 
@@ -58,7 +58,7 @@ The check reports connection, installation, trust, and observed instruction deli
 
 ## What the plugin does
 
-The plugin connects to `https://test.arcticrex.com/mcp/veloci` using your own account. Its startup script only prints the Veloci task instructions; it performs no network request and changes no files. The agent uses Veloci tools under the permissions you grant. No arcrex binary or edits to AGENTS.md/CLAUDE.md are required.
+The plugin connects to `https://veloci.arcticrex.com/mcp/veloci` using your own account. Its startup script only prints the Veloci task instructions; it performs no network request and changes no files. The agent uses Veloci tools under the permissions you grant. No arcrex binary or edits to AGENTS.md/CLAUDE.md are required.
 
 The removal-only `scripts/remove-legacy-hooks.py` helper requires explicit `--remove`; the `scripts/check.py --migrate` flow calls it. No standalone installer is bundled. The optional migration removes only recognized old standalone task hooks when you explicitly request migration after the plugin is enabled and trusted. It preserves unrelated hooks. Do not enable duplicate standalone and plugin task hooks. Use the host connection UI to remove an obsolete duplicate MCP connection after verifying the replacement.
 

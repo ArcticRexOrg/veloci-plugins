@@ -12,7 +12,7 @@ Connect goals, reconcile commitments, and keep work moving with Veloci. Review g
 
 Install Veloci once in each execution environment to load canonical task instructions in fresh agentic sessions. Connect with your own Veloci account, review permissions and trust, then use the init skill once to check setup. Do not invoke init every session.
 
-This package connects to https://test.arcticrex.com/mcp/veloci. No credentials are included. The public marketplace beta below targets https://test.arcticrex.com/mcp/veloci only. If your gateway differs, do not install the beta or switch your account; use a package explicitly configured for your gateway.
+This package connects to https://veloci.arcticrex.com/mcp/veloci. No credentials are included. The public marketplace beta below targets https://veloci.arcticrex.com/mcp/veloci only. If your gateway differs, do not install the beta or switch your account; use a package explicitly configured for your gateway.
 
 ## Claude Code
 
