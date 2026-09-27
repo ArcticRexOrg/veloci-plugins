@@ -1,4 +1,4 @@
-# Veloci by ArcticRex — 0.3.0 beta
+# Veloci by ArcticRex — 0.3.1 beta
 
 Connect goals, reconcile commitments, and keep work moving with Veloci. Review goals and their tasks to plan your next steps, reconcile evidence from your notes with existing commitments, and save progress when requested.
 
@@ -7,6 +7,10 @@ Connect goals, reconcile commitments, and keep work moving with Veloci. Review g
 - Show my goals and the open work connected to them so I can plan my next steps.
 - Reconcile the commitments in these notes with my existing work.
 - Save my progress and show what remains on this task.
+
+## Measure your weekly plan automatically
+
+The `weekly-plan-measurement` skill sets up automatic measurement of your weekly plan: it calls the `weekly_plan` tool with `setup: true`, follows the returned procedure, runs one measurement, and saves the recurring prompt with your assistant's own scheduling tools. The Veloci weekly plan page offers the same one-line prompt as a button.
 
 ## Enable automatic task tracking
 
